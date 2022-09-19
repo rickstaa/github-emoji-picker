@@ -101,9 +101,7 @@ const buildData = (githubEmojisData) => {
     let name = inflection.titleize(
       datum.name || datum.short_name.replace(/-/g, " ") || ""
     );
-    let unicodeEmojiName = inflection.titleize(
-      unicodeEmoji[native]?.name || ""
-    );
+    let unicodeEmojiName = inflection.titleize(unicodeEmoji[native].name || "");
     if (
       name.indexOf(":") === -1 &&
       unicodeEmojiName.length &&
