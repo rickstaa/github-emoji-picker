@@ -2,7 +2,7 @@ name: Up to Date
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   update:
