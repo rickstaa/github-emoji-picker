@@ -14,7 +14,6 @@
     "emojilib": "^3.0.7",
     "inflection": "^1.13.4",
     "octokit": "^2.0.7",
-    "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.3.0",
     "react-scripts": "5.0.1",
@@ -22,19 +21,19 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.19.0",
     "@testing-library/dom": "8.18.0",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/emoji-mart": "^3.0.9",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.56",
-    "@types/react": "^18.0.17",
+    "@types/node": "^16.11.59",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
-    "@types/testing-library__jest-dom": "5.14.5",
     "prettier": "^2.7.1",
     "sort-package-json": "^1.57.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,9 +42,10 @@
     "format:check": "prettier --check \"**/*.ts\"",
     "lint": "eslint \"**/*.ts\"",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "update-emojis": "node scripts/create_github_emoji_list.js",
-    "all": "npm run build && npm run format && npm run lint && npm test:all"
+    "all": "npm run build && npm run format && npm run lint && npm run test:ci"
   },
   "eslintConfig": {
     "extends": [
@@ -64,6 +64,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "jest": {}
+  }
 }
