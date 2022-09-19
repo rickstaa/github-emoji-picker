@@ -5,9 +5,6 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 
 // == Mocks ==
-// MOCK react-github-btn
-// TODO: Can be removed if https://github.com/buttons/react-github-btn/issues/27 is fixed.
-jest.mock("react-github-btn", () => () => <>Button</>);
 
 // Mock emoji-mart
 jest.mock("./components/EmojiPicker", () => ({
