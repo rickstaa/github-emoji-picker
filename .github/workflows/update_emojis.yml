@@ -19,7 +19,7 @@ jobs:
           node-version: "12"
 
       - name: Update Emoji data files
-        run: npm update-emojis
+        run: npm run update-emojis
 
       - name: Create Pull Request if data files were changed
         uses: peter-evans/create-pull-request@v4
