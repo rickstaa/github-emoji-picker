@@ -26,3 +26,10 @@ jobs:
 
       - name: Create Pull Request if data files were changed
         uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "Update Emojis :octokit:"
+          branch: "update_emojis/patch"
+          delete-branch: true
+          title: Update Emojis
+          body: "The [update_emojis](https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_emojis.yml) action found new/updated emotions."
+          labels: "ci, emojis"
