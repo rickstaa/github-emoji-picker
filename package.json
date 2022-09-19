@@ -7,7 +7,6 @@
     "@emoji-mart/react": "^1.0.1",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
-    "@mui/icons-material": "^5.10.2",
     "@mui/material": "^5.10.2",
     "@octokit/core": "^4.0.5",
     "emoji-datasource": "^14.0.0",
@@ -38,7 +37,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "update-emojis": "node scripts/create_github_emoji_list.js"
   },
   "eslintConfig": {
     "extends": [

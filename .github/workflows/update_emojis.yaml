@@ -1,0 +1,26 @@
+name: Up to Date
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  update:
+    name: Update emoji data files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: "12"
+
+      - name: Update Emoji data files
+        run: npm update-emojis
+
+      - name: Create Pull Request if data files were changed
+        uses: peter-evans/create-pull-request@v4
