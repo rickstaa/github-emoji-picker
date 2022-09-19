@@ -1,4 +1,7 @@
 <p align="center">
+    <a href="https://github.com/rickstaa/github-emoji-picker/actions/workflows/test.yml">
+        <img alt="emoji-update-action status" src="https://github.com/rickstaa/github-emoji-picker/actions/workflows/test.yml/badge.svg">
+    </a>
     <a href="https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_emojis.yml">
         <img alt="emoji-update-action status" src="https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_emojis.yml/badge.svg">
     </a>
@@ -13,6 +16,10 @@ A simple Emoji picker that displays all the emojis that GitHub supports. It is a
         <img src="https://user-images.githubusercontent.com/17570430/191030155-ac3c43aa-fd59-4962-8a28-70462aa51dc9.png"/>
     </a>
 </p>
+
+## Contributing
+
+Feel free to open an issue if you have ideas on how to make this repository better or if you want to report a bug! All contributions are welcome. :rocket: Please consult the [contribution guidelines](CONTRIBUTING.md) for more information.
 
 ## Acknowledgments
 

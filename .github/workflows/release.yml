@@ -1,0 +1,59 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*.*.*"
+  pull_request:
+    types:
+      - labeled
+
+jobs:
+  release:
+    if: github.event.action != 'labeled'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Bump version on merging Pull Requests with specific labels.
+      # (bump:major,bump:minor,bump:patch)
+      - name: Bump version tag if tag bump label is found
+        id: bumpr
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        uses: haya14busa/action-bumpr@v1
+
+      # Update corresponding major and minor tag.
+      # e.g. Update v1 and v1.2 when releasing v1.2.3
+      - name: Update major/minor tags
+        uses: haya14busa/action-update-semver@v1
+        if: "!steps.bumpr.outputs.skip"
+        with:
+          tag: ${{ steps.bumpr.outputs.next_version }}
+
+      # Get tag name.
+      - name: Get current tag
+        id: tag
+        uses: haya14busa/action-cond@v1
+        with:
+          cond: "${{ startsWith(github.ref, 'refs/tags/') }}"
+          if_true: ${{ github.ref }}
+          if_false: ${{ steps.bumpr.outputs.next_version }}
+
+      # Create release
+      - name: Release version
+        if: "steps.tag.outputs.value != ''"
+        env:
+          TAG_NAME: ${{ steps.tag.outputs.value }}
+          TAG_BODY: ${{ steps.bumpr.outputs.message }}
+          # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${TAG_NAME} -t "${TAG_NAME/refs\/tags\//}" --notes "${TAG_BODY}"
+  release-check:
+    if: github.event.action == 'labeled'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Post bumpr status comment
+        uses: haya14busa/action-bumpr@v1
