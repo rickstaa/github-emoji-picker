@@ -19,9 +19,15 @@ export const Header = () => {
       alignItems="center"
     >
       <Grid item>
-        <Grid container direction="row" spacing={1} mt={1}>
+        <Grid
+          container
+          direction="row"
+          spacing={1}
+          mt={1}
+          justifyContent="center"
+        >
           <Grid item>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4" gutterBottom align="center">
               GitHub Emoji Picker
             </Typography>
           </Grid>
@@ -35,12 +41,12 @@ export const Header = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" align="center" pl={1} pr={1}>
           A simple emotion picker that displays all the supported GitHub emojis.
         </Typography>
       </Grid>
       <Grid item>
-        <Grid container spacing={2} pt={1} pb={1}>
+        <Grid container spacing={2} pt={1} pb={1} justifyContent="center">
           <Grid item>
             <GitHubButton
               href="https://github.com/rickstaa/github-emoji-picker"
@@ -93,7 +99,7 @@ export const Header = () => {
             <ThemeSwitch checked={mode !== "dark"} onClick={toggleMode} />
           </Grid>
           <Grid item>
-            <Typography variant="caption">
+            <Typography variant="caption" align="center" pl={1} pr={1}>
               Switch to your preferred theme.
             </Typography>
           </Grid>

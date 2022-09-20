@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <Grid container>
       <Grid item pt={1} pb={1}>
-        <Typography variant="caption" align="center">
+        <Typography variant="caption" align="center" pl={1} pr={1}>
           Created with{" "}
           <Link
             href="https://github.com/missive/emoji-mart"
