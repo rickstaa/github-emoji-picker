@@ -1,7 +1,8 @@
 name: Up to Date
 on:
   schedule:
-    - cron: "0 0 */1 * *"
+    - cron: "0 0 */7 * *"
+
 jobs:
   update:
     name: Update emoji data files
