@@ -41,8 +41,8 @@
     "format": "prettier --write \"**/*.ts\"",
     "format:check": "prettier --check \"**/*.ts\"",
     "lint": "eslint \"**/*.ts\"",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!ui-core)/\"",
-    "test:ci": "react-scripts test --watchAll=false --transformIgnorePatterns \"node_modules/(?!ui-core)/\"",
+    "test": "react-scripts test --transformIgnorePatterns \"/node_modules/(?!react-github-btn/)\"",
+    "test:ci": "react-scripts test --watchAll=false --transformIgnorePatterns \"/node_modules/(?!react-github-btn/)\"",
     "eject": "react-scripts eject",
     "update-emojis": "node scripts/create_github_emoji_list.js",
     "all": "npm run build && npm run format && npm run lint && npm run test:ci"
