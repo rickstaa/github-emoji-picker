@@ -25,9 +25,10 @@ export interface SnackbarMessage {
 const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [mode, setMode] = useState(() => {
-    return window.localStorage.getItem("mode") || prefersDarkMode
-      ? "dark"
-      : "light";
+    return (
+      window.localStorage.getItem("mode") ||
+      (prefersDarkMode ? "dark" : "light")
+    );
   });
   const [snackPack, setSnackPack] = useState<readonly SnackbarMessage[]>([]);
   const [open, setOpen] = useState(false);
