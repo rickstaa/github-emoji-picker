@@ -6,6 +6,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import themes from "./assets/themes";
 import { Emoji, EmojiPicker } from "./components/EmojiPicker";
 import { Footer } from "./components/Footer";
@@ -35,6 +36,7 @@ const App = () => {
   const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
     undefined
   );
+  const { i18n } = useTranslation();
 
   /* Store theme mode in local storage. */
   useEffect(() => {
@@ -122,7 +124,7 @@ const App = () => {
             <Header />
           </Grid>
           <Grid item justifyContent="center">
-            <EmojiPicker onEmojiSelect={handleEmojiSelect} />
+            <EmojiPicker onEmojiSelect={handleEmojiSelect} locale={i18n.resolvedLanguage}/>
           </Grid>
           <Grid item>
             <Footer />

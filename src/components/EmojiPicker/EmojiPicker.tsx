@@ -28,8 +28,10 @@ export interface Emoji {
 /** Emoji picker component. */
 export const EmojiPicker = ({
   onEmojiSelect,
+  locale = "en",
 }: {
   onEmojiSelect: (input: Emoji) => void;
+  locale?: string;
 }) => {
   const { mode } = useContext(ThemeContext);
 
@@ -41,6 +43,7 @@ export const EmojiPicker = ({
       onEmojiSelect={onEmojiSelect}
       theme={mode === "dark" ? "dark" : "light"}
       sx={{ pt: "1", pb: "1" }}
+      locale={locale}
     />
   );
 };
