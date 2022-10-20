@@ -6,10 +6,12 @@ import { useContext } from "react";
 import GitHubButton from "react-github-btn";
 import { ThemeContext } from "../../store";
 import { ThemeSwitch } from "../ThemeSwitch";
+import { useTranslation } from "react-i18next";
 
 /** Header component. */
 export const Header = () => {
   const { mode, toggleMode } = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   return (
     <Grid
@@ -42,7 +44,7 @@ export const Header = () => {
       </Grid>
       <Grid item>
         <Typography variant="subtitle1" align="center" pl={1} pr={1}>
-          A simple emotion picker that displays all the supported GitHub emojis.
+          {t("header.description")}
         </Typography>
       </Grid>
       <Grid item>
@@ -100,7 +102,7 @@ export const Header = () => {
           </Grid>
           <Grid item>
             <Typography variant="caption" align="center" pl={1} pr={1}>
-              Switch to your preferred theme.
+              {t("header.themeSwitch.description")}
             </Typography>
           </Grid>
         </Grid>
