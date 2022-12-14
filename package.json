@@ -40,7 +40,7 @@
     "@mui/material": "^5.11.0",
     "@octokit/core": "^4.1.0",
     "emoji-datasource": "^14.0.0",
-    "emoji-mart": "^5.3.2",
+    "emoji-mart": "^5.4.0",
     "emojilib": "^3.0.7",
     "inflection": "^2.0.0",
     "octokit": "^2.0.7",
