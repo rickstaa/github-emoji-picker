@@ -38,7 +38,7 @@
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@mui/material": "^5.11.0",
-    "@octokit/core": "^4.1.0",
+    "@octokit/core": "^4.2.0",
     "emoji-datasource": "^14.0.0",
     "emoji-mart": "^5.5.1",
     "emojilib": "^3.0.7",
