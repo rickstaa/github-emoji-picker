@@ -1,5 +1,5 @@
 {
-    "header.description": "Een eenvoudige emotie kiezer die alle GitHub emojis toont die wordt ondersteund.",
-    "header.themeSwitch.description": "Wissel naar je gewenste thema.",
-    "footer.description": "Gemaakt met"
+    "header.description": "サポートされているすべてのGitHubの絵文字を表示するシンプルな感情ピッカー。",
+    "header.themeSwitch.description": "お好みのテーマに切り替えます。",
+    "footer.description": "生成"
 }
