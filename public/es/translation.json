@@ -1,5 +1,5 @@
 {
-    "header.description": "Un sencillo selector de emociones que muestra todos los emojis de GitHub compatibles.",
-    "header.themeSwitch.description": "Cambiar a tu tema preferido.",
-    "footer.description": "Creado con"
+    "header.description": "A simple emotion picker that displays all the supported GitHub emojis.",
+    "header.themeSwitch.description": "Switch to your preferred theme.",
+    "footer.description": "Created with"
 }
