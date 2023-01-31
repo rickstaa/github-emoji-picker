@@ -43,7 +43,7 @@
     "emoji-mart": "^5.5.1",
     "emojilib": "^3.0.7",
     "i18next": "^22.0.1",
-    "i18next-browser-languagedetector": "^6.1.8",
+    "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^1.4.4",
     "inflection": "^2.0.0",
     "octokit": "^2.0.7",
