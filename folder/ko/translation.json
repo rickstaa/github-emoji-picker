@@ -1,5 +1,5 @@
 {
-    "header.description": "A simple emotion picker that displays all the supported GitHub emojis.",
-    "header.themeSwitch.description": "Switch to your preferred theme.",
-    "footer.description": "Created with"
+    "header.description": "지원되는 모든 GitHub 이모티콘을 표시하는 간단한 감정 선택기입니다.",
+    "header.themeSwitch.description": "원하는 테마로 전환합니다.",
+    "footer.description": "만든 사람"
 }
