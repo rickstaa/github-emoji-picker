@@ -25,3 +25,5 @@ yarn-error.log*
 # IDEA
 .vscode
 *.code-workspace
+
+.vercel
