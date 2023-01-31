@@ -5,6 +5,9 @@
     <a href="https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_emojis.yml">
         <img alt="emoji-update-action status" src="https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_emojis.yml/badge.svg">
     </a>
+    <a title="Crowdin" target="_blank" href="https://crowdin.com/project/github-emoji-picker">
+        <img src="https://badges.crowdin.net/github-emoji-picker/localized.svg">
+    </a>
 </p>
 
 # github-emoji-picker

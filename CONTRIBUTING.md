@@ -2,11 +2,12 @@
 
 We love your input! 🚀 We want to make contributing to this project as easy and transparent as possible, whether it's:
 
--   Reporting a bug.
--   Discussing the current state of the code.
--   Submitting a fix.
--   Proposing new features.
+-   [Reporting a bug](https://github.com/rickstaa/github-emoji-picker/issues).
+-   [Discussing the current state of the code](https://github.com/rickstaa/github-emoji-picker/discussions).
+-   [Submitting a fix](https://github.com/rickstaa/github-emoji-picker/pulls).
+-   [Proposing new features](https://github.com/rickstaa/github-emoji-picker/issues).
 -   Becoming a maintainer.
+-   [Providing translations](https://crowdin.com/project/github-emoji-picker/).
 
 ## We Develop with Github
 
@@ -51,6 +52,10 @@ People _love_ thorough bug reports. I'm not even kidding.
 ## Use a Consistent Coding Style
 
 We use [prettier](https://prettier.io/) formatter to format our typescript code. The easiest way to use [prettier](https://prettier.io/) is through the [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) VS Code extensions. You are also advised to use [eslint](https://eslint.org/) for linting your code before.
+
+## Provide translations
+
+The local App translations (i.e. header and footer) are provided through [Crowdin](https://crowdin.com/project/github-emoji-picker). Please check out https://crowdin.com/project/github-emoji-picker if you want to add a card translation. The Emoji-Picker translations are handled by the [Emoji Mart package](https://github.com/missive/emoji-mart). If you want to translate parts of the picker, please open an issue at https://github.com/missive/emoji-mart/issues.
 
 ## License
 
