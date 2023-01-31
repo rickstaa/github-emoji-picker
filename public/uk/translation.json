@@ -1,5 +1,5 @@
 {
-    "header.description": "Простий вибір емоцій, який відображає всі підтримувані емодзі GitHub.",
-    "header.themeSwitch.description": "Переключитися на основну тему.",
-    "footer.description": "Створюється з"
+    "header.description": "A simple emotion picker that displays all the supported GitHub emojis.",
+    "header.themeSwitch.description": "Switch to your preferred theme.",
+    "footer.description": "Created with"
 }
