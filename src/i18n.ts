@@ -21,6 +21,32 @@ i18n
   .init({
     debug: true,
     fallbackLng: "en",
+    supportedLngs: [
+      "en",
+      "ar",
+      "be",
+      "cs",
+      "de",
+      "en",
+      "es",
+      "fa",
+      "fr",
+      "hi",
+      "it",
+      "ja",
+      "ko",
+      "nl",
+      "pl",
+      "pt",
+      "ru",
+      "sa",
+      "ru",
+      "sa",
+      "tr",
+      "uk",
+      "vi",
+      "zh",
+    ],
   });
 
 export default i18n;
