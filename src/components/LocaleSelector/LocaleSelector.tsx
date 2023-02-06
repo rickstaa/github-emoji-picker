@@ -1,3 +1,7 @@
+/**
+ * @file LocaleSelector component.
+ */
+
 import { useCallback, useMemo, useState } from "react";
 import {
   Button,

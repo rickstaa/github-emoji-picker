@@ -2,11 +2,12 @@
  * @file Contains the function `getEmojiFlag` that converts country codes to emoji flags
  */
 
-// https://gist.github.com/RienNeVaPlus/307d19b1c33fbb2545eca5c83d3bad83
 
 /**
  * 🏁 Returns an unicode-emoji-flag-icon for a two digit country code or a locale (eg. en-US)
  * - Supports 239 countries
+ * 
+ * https://gist.github.com/RienNeVaPlus/307d19b1c33fbb2545eca5c83d3bad83
  *
  * @param {String} countryCode - the country code to display a flag for (eg. US)
  * @param {String} [fallback=🏳] - fallback icon when no matching flag has been found
