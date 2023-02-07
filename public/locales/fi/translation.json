@@ -1,5 +1,6 @@
 {
     "header.description": "Yksinkertainen tunteiden poimija, joka näyttää kaikki tuetut GitHub emojit.",
     "header.themeSwitch.description": "Vaihda haluamaasi teemaan ja kieleen.",
-    "footer.description": "Luotu sovelluksella"
+    "footer.description": "Luotu sovelluksella",
+    "localeSelector.translate": "Käännä"
 }
