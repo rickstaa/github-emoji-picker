@@ -3,13 +3,12 @@
  */
 
 import { useContext, useMemo, useState } from "react";
-import { Button, Popover, Paper, Grid, styled } from "@mui/material";
+import { Button, Popover, Paper, Grid, styled, Link} from "@mui/material";
 import { Translate, AddBox } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { getEmojiFlag } from "../../../utils/getEmojiFlag";
 import { getName } from "all-iso-language-codes";
 import { ThemeContext } from "../../../store";
-import Link from "@mui/material/Link/Link";
 
 // Style locale selector language option button.
 const LocaleOptButton = styled(Button)(({ theme }) => ({
