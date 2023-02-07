@@ -1,5 +1,6 @@
 {
     "header.description": "एक साधारण इमोशन पिकर जो सभी समर्थित GitHub इमोजीस को प्रदर्शित करता है।",
     "header.themeSwitch.description": "अपनी पसंदीदा थीम और भाषा पर स्विच करें।",
-    "footer.description": "के साथ बनाया गया"
+    "footer.description": "के साथ बनाया गया",
+    "localeSelector.translate": "Translate"
 }
