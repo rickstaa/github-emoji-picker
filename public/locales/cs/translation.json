@@ -1,5 +1,6 @@
 {
     "header.description": "Jednoduchý výběr emocí, který zobrazuje všechny podporované GitHuby.",
     "header.themeSwitch.description": "Přepněte na preferovanou šablonu a jazyk.",
-    "footer.description": "Vyrobeno s"
+    "footer.description": "Vyrobeno s",
+    "localeSelector.translate": "Translate"
 }
