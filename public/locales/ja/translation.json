@@ -2,5 +2,5 @@
     "header.description": "サポートされているすべてのGitHubの絵文字を表示するシンプルな感情ピッカー。",
     "header.themeSwitch.description": "お好みのテーマと言語に切り替えます。",
     "footer.description": "生成",
-    "localeSelector.translate": "Translate"
+    "localeSelector.translate": "翻訳する"
 }
