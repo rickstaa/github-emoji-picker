@@ -1,5 +1,5 @@
 {
     "header.description": "Простой выбор эмоций, который отображает все поддерживаемые эмодзи GitHub.",
-    "header.themeSwitch.description": "Переключиться на предпочитаемую тему.",
+    "header.themeSwitch.description": "Переключитесь на предпочитаемую тему и язык.",
     "footer.description": "Создается с"
 }
