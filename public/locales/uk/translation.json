@@ -1,5 +1,6 @@
 {
     "header.description": "Простий вибір емоцій, який відображає всі підтримувані емодзі GitHub.",
     "header.themeSwitch.description": "Переключитися на вашу основну тему та мову.",
-    "footer.description": "Створюється з"
+    "footer.description": "Створюється з",
+    "localeSelector.translate": "Translate"
 }
