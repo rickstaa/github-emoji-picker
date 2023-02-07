@@ -24,7 +24,7 @@ import { ThemeContext } from "./store";
  * universally used.
  */
 const getMartLocale = (locale: string) => {
-  return locale === "kr" ? "kr" : locale;
+  return locale === "ko" ? "kr" : locale;
 };
 
 //== Types ==
