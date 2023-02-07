@@ -12,7 +12,8 @@
     "start": "react-scripts start",
     "test": "react-scripts test --transformIgnorePatterns \"/node_modules/(?!react-github-btn/)\"",
     "test:ci": "react-scripts test --watchAll=false --transformIgnorePatterns \"/node_modules/(?!react-github-btn/)\"",
-    "update-emojis": "node scripts/create_github_emoji_list.js"
+    "update-emojis": "node scripts/create_github_emoji_list.js",
+    "update-locales": "node scripts/update_locales.js"
   },
   "browserslist": {
     "production": [

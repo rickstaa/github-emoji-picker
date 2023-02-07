@@ -5,6 +5,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import Backend from "i18next-http-backend";
+import lcs from "./assets/supported_locals.json";
 
 i18n
   // i18next-http-backend
@@ -21,32 +22,7 @@ i18n
   .init({
     debug: true,
     fallbackLng: "en",
-    supportedLngs: [
-      "en",
-      "ar",
-      "be",
-      "cs",
-      "de",
-      "en",
-      "es",
-      "fa",
-      "fr",
-      "hi",
-      "it",
-      "ja",
-      "ko",
-      "nl",
-      "pl",
-      "pt",
-      "ru",
-      "sa",
-      "ru",
-      "sa",
-      "tr",
-      "uk",
-      "vi",
-      "zh",
-    ],
+    supportedLngs: lcs.supportedLocals,
   });
 
 export default i18n;

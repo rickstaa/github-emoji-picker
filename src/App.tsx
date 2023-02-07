@@ -5,7 +5,7 @@ import { CssBaseline, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import themes from "./assets/themes";
 import { Emoji, EmojiPicker } from "./components/EmojiPicker";
@@ -13,6 +13,19 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Snackbar } from "./components/Snackbar";
 import { ThemeContext } from "./store";
+
+/**
+ * Get the mart locale.
+ *
+ * @param locale The locale to get the mart locale for.
+ * @returns The mart locale.
+ *
+ * @description Mart sometimes uses a different locale code than the one that is
+ * universally used.
+ */
+const getMartLocale = (locale: string) => {
+  return locale === "kr" ? "kr" : locale;
+};
 
 //== Types ==
 
@@ -25,23 +38,34 @@ export interface SnackbarMessage {
 /** The main app */
 const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const { i18n } = useTranslation();
   const [mode, setMode] = useState(() => {
     return (
       window.localStorage.getItem("mode") ||
       (prefersDarkMode ? "dark" : "light")
     );
   });
+  const [locale, setLocale] = useState(() => {
+    return (
+      window.localStorage.getItem("locale") || i18n.resolvedLanguage || "en"
+    );
+  });
+  const martLocale = useMemo(() => getMartLocale(locale), [locale]);
   const [snackPack, setSnackPack] = useState<readonly SnackbarMessage[]>([]);
   const [open, setOpen] = useState(false);
   const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
     undefined
   );
-  const { i18n } = useTranslation();
 
   /* Store theme mode in local storage. */
   useEffect(() => {
     window.localStorage.setItem("mode", mode);
   }, [mode]);
+
+  /* Store locale in local storage. */
+  useEffect(() => {
+    window.localStorage.setItem("locale", locale);
+  }, [locale]);
 
   /* Implements snackbar functionality. */
   useEffect(() => {
@@ -103,11 +127,23 @@ const App = () => {
     setMode(mode === "dark" ? "light" : "dark");
   };
 
+  /**
+   * Changes the UI locale.
+   *
+   * @param lcl Locale to change to.
+   */
+  const changeLocale = async (lcl: string) => {
+    setLocale(lcl);
+    await i18n.changeLanguage(lcl);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
         mode,
         toggleMode: toggleThemeMode,
+        locale,
+        changeLocale,
       }}
     >
       <ThemeProvider theme={themes[mode]}>
@@ -124,7 +160,10 @@ const App = () => {
             <Header />
           </Grid>
           <Grid item justifyContent="center">
-            <EmojiPicker onEmojiSelect={handleEmojiSelect} locale={i18n.resolvedLanguage}/>
+            <EmojiPicker
+              onEmojiSelect={handleEmojiSelect}
+              locale={martLocale}
+            />
           </Grid>
           <Grid item>
             <Footer />

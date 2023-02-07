@@ -1,17 +1,17 @@
 /**
- * @file Contains the function `getEmojiFlag` that converts country codes to emoji flags
+ * @file Contains the function `getEmojiFlag` that converts country codes to emoji flags.
  */
 
 
 /**
  * 🏁 Returns an unicode-emoji-flag-icon for a two digit country code or a locale (eg. en-US)
- * - Supports 239 countries
+ * - Supports 239 countries.
  * 
  * https://gist.github.com/RienNeVaPlus/307d19b1c33fbb2545eca5c83d3bad83
  *
- * @param {String} countryCode - the country code to display a flag for (eg. US)
- * @param {String} [fallback=🏳] - fallback icon when no matching flag has been found
- * @param {Object} [countryFlagData] - an object of country code : flag
+ * @param countryCode - the country code to display a flag for (eg. US).
+ * @param fallback - fallback icon when no matching flag has been found. Defaults to 🏳.
+ * @param countryFlagData - an object of country code : flag.
  */
 export function getEmojiFlag(countryCode: string, fallback: string = '🏳', countryFlagData: {[key: string]: string} = {
 	AD: '🇦🇩', AE: '🇦🇪', AF: '🇦🇫', AG: '🇦🇬', AI: '🇦🇮', AL: '🇦🇱', AM: '🇦🇲', AO: '🇦🇴', AQ: '🇦🇶', AR: '🇦🇪',
@@ -39,7 +39,7 @@ export function getEmojiFlag(countryCode: string, fallback: string = '🏳', cou
 	TL: '🇹🇱', TM: '🇹🇲', TN: '🇹🇳', TO: '🇹🇴', TR: '🇹🇷', TT: '🇹🇹', TV: '🇹🇻', TW: '🇹🇼', TZ: '🇹🇿', UA: '🇺🇦',
 	UG: '🇺🇬', UM: '🇺🇲', US: '🇺🇸', UY: '🇺🇾', UZ: '🇺🇿', VA: '🇻🇦', VC: '🇻🇨', VE: '🇻🇪', VG: '🇻🇬', 
 	VN: '🇻🇳', VU: '🇻🇺', WF: '🇼🇫', WS: '🇼🇸', XK: '🇽🇰', YE: '🇾🇪', YT: '🇾🇹', ZA: '🇿🇦', ZM: '🇿🇲', 
-    /** Manually linking some flags to language shortcodes */
+    /** Manually linking some flags to language shortcodes. */
     EN: '🇬🇧', CS: '🇨🇿', FA: '🇮🇷', HI: '🇮🇳', SA: '🇮🇳', JA: '🇯🇵', KO: '🇰🇷', UK: '🇺🇦', VI: '🇻🇳', ZH: '🇨🇳', BE: '🇧🇾'
 }){
 	const arr = countryCode.split('-');

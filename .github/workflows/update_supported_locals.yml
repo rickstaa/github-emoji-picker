@@ -1,0 +1,35 @@
+name: "Update supported locales"
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  updateSupportedLocales:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update supported locales file
+        run: npm run update-locales
+
+      - name: Create Pull Request if 'src/assets/supported-locals.json' file was changed
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "Update supported Locales"
+          branch: "update_locals/patch"
+          delete-branch: true
+          title: Update supported locals
+          body: "The [update_supported_locals](https://github.com/rickstaa/github-emoji-picker/actions/workflows/update_supported_locals.yml) action found new locales."
+          labels: "ci, locales"

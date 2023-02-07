@@ -7,7 +7,7 @@ import GitHubButton from "react-github-btn";
 import { ThemeContext } from "../../store";
 import { ThemeSwitch } from "../ThemeSwitch";
 import { useTranslation } from "react-i18next";
-import { LocaleSelector } from "../LocaleSelector";
+import { LocaleSelector } from "./LocaleSelector";
 
 /** Header component. */
 export const Header = () => {
