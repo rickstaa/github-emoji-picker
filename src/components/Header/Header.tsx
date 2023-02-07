@@ -7,6 +7,7 @@ import GitHubButton from "react-github-btn";
 import { ThemeContext } from "../../store";
 import { ThemeSwitch } from "../ThemeSwitch";
 import { useTranslation } from "react-i18next";
+import { LocaleSelector } from "./LocaleSelector";
 
 /** Header component. */
 export const Header = () => {
@@ -99,6 +100,7 @@ export const Header = () => {
         <Grid container direction="column" alignItems="center">
           <Grid item>
             <ThemeSwitch checked={mode !== "dark"} onClick={toggleMode} />
+            <LocaleSelector />
           </Grid>
           <Grid item>
             <Typography variant="caption" align="center" pl={1} pr={1}>
