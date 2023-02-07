@@ -4,11 +4,12 @@
 
 import { useContext, useMemo, useState } from "react";
 import { Button, Popover, Paper, Grid, styled } from "@mui/material";
-import TranslateIcon from "@mui/icons-material/Translate";
+import { Translate, AddBox } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { getEmojiFlag } from "../../../utils/getEmojiFlag";
 import { getName } from "all-iso-language-codes";
 import { ThemeContext } from "../../../store";
+import Link from "@mui/material/Link/Link";
 
 // Style locale selector language option button.
 const LocaleOptButton = styled(Button)(({ theme }) => ({
@@ -25,7 +26,7 @@ const LocaleOptButton = styled(Button)(({ theme }) => ({
 
 /** Locale selector component. */
 export const LocaleSelector = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { locale, changeLocale } = useContext(ThemeContext);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
@@ -66,7 +67,7 @@ export const LocaleSelector = () => {
   return (
     <>
       <Button aria-describedby={id} variant="text" onClick={handleClick}>
-        <TranslateIcon />
+        <Translate />
       </Button>
       <Popover
         id={id}
@@ -88,6 +89,18 @@ export const LocaleSelector = () => {
                 </LocaleOptButton>
               </Grid>
             ))}
+            <Grid item xs={6} sm={4} md={3}>
+              <Link
+                target="_blank"
+                href="https://crowdin.com/project/github-emoji-picker"
+                underline="none"
+              >
+                <LocaleOptButton>
+                  <AddBox fontSize="small" />
+                  {t("localeSelector.translate")}
+                </LocaleOptButton>
+              </Link>
+            </Grid>
           </Grid>
         </Paper>
       </Popover>
