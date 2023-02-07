@@ -1,5 +1,6 @@
 {
     "header.description": "Ein einfacher Emotionswähler, der alle unterstützten GitHub Emojis anzeigt.",
     "header.themeSwitch.description": "Wechseln Sie zu Ihrem bevorzugten Thema und Ihrer Sprache.",
-    "footer.description": "Hergestellt mit"
+    "footer.description": "Hergestellt mit",
+    "localeSelector.translate": "Translate"
 }
