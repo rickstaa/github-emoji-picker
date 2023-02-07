@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
   const { t } = useTranslation();
-  
+
   return (
     <Grid container>
       <Grid item pt={1} pb={1}>
@@ -17,6 +17,7 @@ export const Footer = () => {
             variant="caption"
             align="center"
             underline="hover"
+            target="_blank"
           >
             emoji-mart🏪
           </Link>
