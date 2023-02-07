@@ -16,7 +16,7 @@ A simple Emoji picker that displays all the emojis that GitHub supports. It is a
 
 <p align="center">
     <a href="https://github-emoji-picker.vercel.app/">
-        <img src="https://user-images.githubusercontent.com/17570430/191030155-ac3c43aa-fd59-4962-8a28-70462aa51dc9.png"/>
+        <img src="https://user-images.githubusercontent.com/17570430/217275127-fe160796-bc00-40c5-a63c-7cced06f5db6.png"/>
     </a>
 </p>
 
