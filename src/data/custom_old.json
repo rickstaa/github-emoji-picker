@@ -5,7 +5,7 @@
     {
       "id": "atom",
       "name": "Atom",
-      "keywords": ["atom", "editor", "code"],
+      "keywords": ["atom"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/atom.png?v8"
@@ -15,7 +15,7 @@
     {
       "id": "basecamp",
       "name": "Basecamp",
-      "keywords": ["basecamp", "project", "management"],
+      "keywords": ["basecamp"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/basecamp.png?v8"
@@ -25,14 +25,7 @@
     {
       "id": "basecampy",
       "name": "Basecampy",
-      "keywords": [
-        "basecamp",
-        "project",
-        "management",
-        "avatar",
-        "people",
-        "person"
-      ],
+      "keywords": ["basecampy"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/basecampy.png?v8"
@@ -42,7 +35,7 @@
     {
       "id": "bowtie",
       "name": "Bowtie",
-      "keywords": ["bowtie", "fabulous", "style", "gentlemen"],
+      "keywords": ["bowtie"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/bowtie.png?v8"
@@ -52,7 +45,7 @@
     {
       "id": "dependabot",
       "name": "Dependabot",
-      "keywords": ["dependabot", "dependency", "security", "ci"],
+      "keywords": ["dependabot"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/dependabot.png?v8"
@@ -62,7 +55,7 @@
     {
       "id": "electron",
       "name": "Electron",
-      "keywords": ["electron", "desktop", "app", "javascript"],
+      "keywords": ["electron"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/electron.png?v8"
@@ -72,7 +65,7 @@
     {
       "id": "feelsgood",
       "name": "Feelsgood",
-      "keywords": ["fight", "brushed", "blood", "happy"],
+      "keywords": ["feelsgood"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/feelsgood.png?v8"
@@ -82,7 +75,7 @@
     {
       "id": "finnadie",
       "name": "Finnadie",
-      "keywords": ["fight", "brushed", "blood", "sad"],
+      "keywords": ["finnadie"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/finnadie.png?v8"
@@ -92,7 +85,7 @@
     {
       "id": "fishsticks",
       "name": "Fishsticks",
-      "keywords": ["fish", "sticks", "food", "hungry"],
+      "keywords": ["fishsticks"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/fishsticks.png?v8"
@@ -102,7 +95,7 @@
     {
       "id": "goberserk",
       "name": "Goberserk",
-      "keywords": ["fight", "brushed", "blood", "suprised"],
+      "keywords": ["goberserk"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/goberserk.png?v8"
@@ -112,7 +105,7 @@
     {
       "id": "godmode",
       "name": "Godmode",
-      "keywords": ["fight", "brushed", "blood", "arrogant", "neutral"],
+      "keywords": ["godmode"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/godmode.png?v8"
@@ -122,7 +115,7 @@
     {
       "id": "hurtrealbad",
       "name": "Hurtrealbad",
-      "keywords": ["fight", "brushed", "blood", "hurt", "sad"],
+      "keywords": ["hurtrealbad"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/hurtrealbad.png?v8"
@@ -132,7 +125,7 @@
     {
       "id": "neckbeard",
       "name": "Neckbeard",
-      "keywords": ["neck", "beard", "face", "stubble", "hipster", "nerd"],
+      "keywords": ["neckbeard"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/neckbeard.png?v8"
@@ -142,7 +135,7 @@
     {
       "id": "octocat",
       "name": "Octocat",
-      "keywords": ["octocat", "github", "github", "octocat"],
+      "keywords": ["octocat"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/octocat.png?v8"
@@ -152,7 +145,7 @@
     {
       "id": "rage1",
       "name": "Rage1",
-      "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"],
+      "keywords": ["rage1"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/rage1.png?v8"
@@ -162,7 +155,7 @@
     {
       "id": "rage2",
       "name": "Rage2",
-      "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"],
+      "keywords": ["rage2"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/rage2.png?v8"
@@ -172,7 +165,7 @@
     {
       "id": "rage3",
       "name": "Rage3",
-      "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"],
+      "keywords": ["rage3"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/rage3.png?v8"
@@ -182,7 +175,7 @@
     {
       "id": "rage4",
       "name": "Rage4",
-      "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"],
+      "keywords": ["rage4"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/rage4.png?v8"
@@ -192,7 +185,7 @@
     {
       "id": "shipit",
       "name": "Shipit",
-      "keywords": ["ship", "it", "shipit", "animal", "detective", "hamster"],
+      "keywords": ["shipit"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/shipit.png?v8"
@@ -202,7 +195,7 @@
     {
       "id": "suspect",
       "name": "Suspect",
-      "keywords": ["fight", "brushed", "suspect", "sad", "dumb"],
+      "keywords": ["suspect"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/suspect.png?v8"
@@ -212,7 +205,7 @@
     {
       "id": "trollface",
       "name": "Trollface",
-      "keywords": ["troll", "face", "trollface", "troll", "face", "trolling"],
+      "keywords": ["trollface"],
       "skins": [
         {
           "src": "https://github.githubassets.com/images/icons/emoji/trollface.png?v8"

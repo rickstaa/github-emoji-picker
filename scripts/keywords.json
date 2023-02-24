@@ -1,0 +1,72 @@
+{
+  "atom": {
+    "keywords": ["atom", "editor", "code"]
+  },
+  "basecamp": {
+    "keywords": ["basecamp", "project", "management"]
+  },
+  "basecampy": {
+    "keywords": [
+      "basecamp",
+      "project",
+      "management",
+      "avatar",
+      "people",
+      "person"
+    ]
+  },
+  "bowtie": {
+    "keywords": ["bowtie", "fabulous", "style", "gentlemen"]
+  },
+  "dependabot": {
+    "keywords": ["dependabot", "dependency", "security", "ci"]
+  },
+  "electron": {
+    "keywords": ["electron", "desktop", "app", "javascript"]
+  },
+  "feelsgood": {
+    "keywords": ["fight", "brushed", "blood", "happy"]
+  },
+  "finnadie": {
+    "keywords": ["fight", "brushed", "blood", "sad"]
+  },
+  "fishsticks": {
+    "keywords": ["fish", "sticks", "food", "hungry"]
+  },
+  "goberserk": {
+    "keywords": ["fight", "brushed", "blood", "suprised"]
+  },
+  "godmode": {
+    "keywords": ["fight", "brushed", "blood", "arrogant", "neutral"]
+  },
+  "hurtrealbad": {
+    "keywords": ["fight", "brushed", "blood", "hurt", "sad"]
+  },
+  "neckbeard": {
+    "keywords": ["neck", "beard", "face", "stubble", "hipster", "nerd"]
+  },
+  "octocat": {
+    "keywords": ["octocat", "github", "github", "octocat"]
+  },
+  "rage1": {
+    "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"]
+  },
+  "rage2": {
+    "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"]
+  },
+  "rage3": {
+    "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"]
+  },
+  "rage4": {
+    "keywords": ["fight", "brushed", "blood", "angry", "mad", "rage"]
+  },
+  "shipit": {
+    "keywords": ["ship", "it", "shipit", "animal", "detective", "hamster"]
+  },
+  "suspect": {
+    "keywords": ["fight", "brushed", "suspect", "sad", "dumb"]
+  },
+  "trollface": {
+    "keywords": ["troll", "face", "trollface", "troll", "face", "trolling"]
+  }
+}
