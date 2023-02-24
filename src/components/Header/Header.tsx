@@ -30,7 +30,7 @@ export const Header = () => {
           justifyContent="center"
         >
           <Grid item>
-            <Typography variant="h4" gutterBottom align="center">
+            <Typography variant="h4" gutterBottom align="center" component="h1">
               GitHub Emoji Picker
             </Typography>
           </Grid>
@@ -44,7 +44,13 @@ export const Header = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Typography variant="subtitle1" align="center" pl={1} pr={1}>
+        <Typography
+          variant="subtitle1"
+          align="center"
+          component="h2"
+          pl={1}
+          pr={1}
+        >
           {t("header.description")}
         </Typography>
       </Grid>
