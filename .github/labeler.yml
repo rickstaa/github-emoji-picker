@@ -1,3 +1,5 @@
 bump:patch:
   - "public/locales/**"
   - "crowdin.yml"
+  - "src/data/github_custom_emojis.json"
+  - "src/data/github_emojis.json"
