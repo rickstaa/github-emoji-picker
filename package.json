@@ -47,7 +47,7 @@
     "emojilib": "^3.0.7",
     "i18next": "^22.0.1",
     "i18next-browser-languagedetector": "^7.0.1",
-    "i18next-http-backend": "^2.1.1",
+    "i18next-http-backend": "^2.2.0",
     "inflection": "^2.0.0",
     "octokit": "^2.0.7",
     "react-dom": "^18.2.0",
