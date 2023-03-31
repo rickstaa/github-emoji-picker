@@ -1,4 +1,14 @@
 {
+  "accessibility": {
+    "keywords": [
+      "accessibility",
+      "guidance",
+      "handicap",
+      "disabilities",
+      "barrier free design",
+      "design"
+    ]
+  },
   "atom": {
     "keywords": ["atom", "editor", "code"]
   },
