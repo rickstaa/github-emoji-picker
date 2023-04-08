@@ -25,7 +25,7 @@ jobs:
         run: npm run update-emojis
 
       - name: Create Pull Request if data files were changed
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "Update Emojis :octokit:"
           branch: "update_emojis/patch"

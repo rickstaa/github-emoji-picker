@@ -25,7 +25,7 @@ jobs:
         run: npm run update-locales
 
       - name: Create Pull Request if 'src/assets/supported_locales.json' file was changed
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "Update supported Locales"
           branch: "update_locals/patch"
