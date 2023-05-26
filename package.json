@@ -57,7 +57,7 @@
     "web-vitals": "^3.3.0"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@babel/runtime": "^7.22.0",
     "@testing-library/dom": "9.3.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
