@@ -13,7 +13,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Snackbar } from "./components/Snackbar";
 import { ThemeContext } from "./store";
-import { unifiedToUnicodeEmoji } from "./utils/utils";
+import { parseShortCodes, unifiedToUnicodeEmoji } from "./utils/utils";
 
 /**
  * Get the mart locale.
@@ -143,12 +143,12 @@ const App = () => {
     let copyText;
     if (event.shiftKey) {
       copyText = copyUnicode
-        ? selectedEmoji.shortcodes
+        ? parseShortCodes(selectedEmoji.shortcodes)[0]
         : unifiedToUnicodeEmoji(selectedEmoji?.unified);
     } else {
       copyText = copyUnicode
         ? unifiedToUnicodeEmoji(selectedEmoji?.unified)
-        : selectedEmoji.shortcodes;
+        : parseShortCodes(selectedEmoji.shortcodes)[0];
     }
 
     // Create snackbar message.

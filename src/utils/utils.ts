@@ -15,4 +15,14 @@ const unifiedToUnicodeEmoji = (unified: string) => {
   );
 };
 
-export { unifiedToUnicodeEmoji };
+/**
+ * Parse short codes from a string.
+ * @param str - the string to parse.
+ * @returns Array of parsed short codes.
+ */
+const parseShortCodes = (str: string) => {
+  const shortCodes = str.match(/:[^:\s]+:/g);
+  return shortCodes ? shortCodes : [str];
+};
+
+export { unifiedToUnicodeEmoji, parseShortCodes };
