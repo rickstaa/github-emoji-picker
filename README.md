@@ -22,7 +22,7 @@ A simple Emoji picker that displays all the emojis that GitHub supports. It is a
 
 ## How to use
 
-Use the search field to search for a given emoji. You can click the emoji to get the shortcode or `shift` + click for the Unicode.
+Use the search field to search for a given emoji. You can click the emoji to get the shortcode on your clipboard or `shift` + click for the Unicode.
 
 ## Contributing
 
