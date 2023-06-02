@@ -13,6 +13,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Snackbar } from "./components/Snackbar";
 import { ThemeContext } from "./store";
+import { unifiedToUnicodeEmoji } from "./utils/utils";
 
 /**
  * Get the mart locale.
@@ -56,6 +57,7 @@ const App = () => {
   const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
     undefined
   );
+  const [copyUnicode, setCopyUnicode] = useState(false); // Whether to copy the unicode instead of the shortcode.
 
   /* Store theme mode in local storage. */
   useEffect(() => {
@@ -66,6 +68,31 @@ const App = () => {
   useEffect(() => {
     window.localStorage.setItem("locale", locale);
   }, [locale]);
+
+  /* Get copy type from URL query params. */
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let copyType = urlParams.get("copy_type");
+
+    // Change copy based on query param.
+    if (copyType) {
+      switch (copyType.toLowerCase()) {
+        case "unicode":
+          window.localStorage.setItem("copyType", "unicode");
+          setCopyUnicode(true);
+          return;
+        case "shortcode":
+        default:
+          window.localStorage.setItem("copyType", "shortcode");
+          setCopyUnicode(false);
+          return;
+      }
+    }
+
+    // Change copy based on local storage.
+    copyType = window.localStorage.getItem("copyType");
+    setCopyUnicode(copyType === "unicode");
+  }, []);
 
   /* Implements snackbar functionality. */
   useEffect(() => {
@@ -111,20 +138,34 @@ const App = () => {
    */
   const handleEmojiSelect = (selectedEmoji: Emoji, event: PointerEvent) => {
     // Copy emoji shortcode or unicode to clipboard.
+    // NOTE: Depends on whether the shift key is pressed and the copyUnicode state.
+    let copyText;
     if (event.shiftKey) {
-      navigator.clipboard.writeText(
-        `${String.fromCodePoint(
-          ...selectedEmoji.unified.split("-").map((str: string) => "0x" + str)
-        )}`
-      );
+      copyText = copyUnicode
+        ? selectedEmoji.shortcodes
+        : unifiedToUnicodeEmoji(selectedEmoji.unified);
     } else {
-      navigator.clipboard.writeText(selectedEmoji.shortcodes);
+      copyText = copyUnicode
+        ? unifiedToUnicodeEmoji(selectedEmoji.unified)
+        : selectedEmoji.shortcodes;
     }
+    navigator.clipboard.writeText(copyText);
 
-    // Display snackbar
-    const snackbarMessage = `Emoji ${
-      event.shiftKey ? "unicode" : "shortcode"
-    } copied to clipboard. ${!event.shiftKey ? "Hold shift for unicode." : ""}`;
+    // Display snackbar.
+    let snackbarMessage: string;
+    if (copyUnicode) {
+      snackbarMessage = `Emoji ${
+        event.shiftKey ? "shortcode" : "unicode"
+      } copied to clipboard. Hold shift for ${
+        event.shiftKey ? "unicode" : "shortcode"
+      }.`;
+    } else {
+      snackbarMessage = `Emoji ${
+        event.shiftKey ? "unicode" : "shortcode"
+      } copied to clipboard. Hold shift for ${
+        event.shiftKey ? "shortcode" : "unicode"
+      }.`;
+    }
     setSnackPack((prev) => [
       ...prev,
       {
