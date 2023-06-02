@@ -109,14 +109,26 @@ const App = () => {
    *
    * @param selectedEmoji Selected emoji.
    */
-  const handleEmojiSelect = (selectedEmoji: Emoji) => {
-    // Copy emoji shortcode to clipboard.
-    navigator.clipboard.writeText(selectedEmoji.shortcodes);
+  const handleEmojiSelect = (selectedEmoji: Emoji, event: PointerEvent) => {
+    // Copy emoji shortcode or unicode to clipboard.
+    if (event.shiftKey) {
+      navigator.clipboard.writeText(
+        `${String.fromCodePoint(
+          ...selectedEmoji.unified.split("-").map((str: string) => "0x" + str)
+        )}`
+      );
+    } else {
+      navigator.clipboard.writeText(selectedEmoji.shortcodes);
+    }
+
     // Display snackbar
+    const snackbarMessage = `Emoji ${
+      event.shiftKey ? "unicode" : "shortcode"
+    } copied to clipboard. ${!event.shiftKey ? "Hold shift for unicode." : ""}`;
     setSnackPack((prev) => [
       ...prev,
       {
-        message: "Emoji shortcode copied to clipboard",
+        message: snackbarMessage,
         key: new Date().getTime(),
       },
     ]);
