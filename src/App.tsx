@@ -135,37 +135,45 @@ const App = () => {
    * Handles selection of the emoji.
    *
    * @param selectedEmoji Selected emoji.
+   *
+   * @description Copies the unicode or shortcode to the clipboard. Depends on the
+   * copyUnicode state and whether the shift key is pressed.
    */
   const handleEmojiSelect = (selectedEmoji: Emoji, event: PointerEvent) => {
-    // Copy emoji shortcode or unicode to clipboard.
-    // NOTE: Depends on whether the shift key is pressed and the copyUnicode state.
     let copyText;
     if (event.shiftKey) {
       copyText = copyUnicode
         ? selectedEmoji.shortcodes
-        : unifiedToUnicodeEmoji(selectedEmoji.unified);
+        : unifiedToUnicodeEmoji(selectedEmoji?.unified);
     } else {
       copyText = copyUnicode
-        ? unifiedToUnicodeEmoji(selectedEmoji.unified)
+        ? unifiedToUnicodeEmoji(selectedEmoji?.unified)
         : selectedEmoji.shortcodes;
     }
-    navigator.clipboard.writeText(copyText);
 
-    // Display snackbar.
+    // Create snackbar message.
     let snackbarMessage: string;
-    if (copyUnicode) {
-      snackbarMessage = `Emoji ${
-        event.shiftKey ? "shortcode" : "unicode"
-      } copied to clipboard. Hold shift for ${
-        event.shiftKey ? "unicode" : "shortcode"
-      }.`;
+    if (copyText === "") {
+      copyText = selectedEmoji.shortcodes;
+      snackbarMessage =
+        "Emoji 'shortcode' copied to clipboard since 'unicode' is not available.";
     } else {
-      snackbarMessage = `Emoji ${
-        event.shiftKey ? "unicode" : "shortcode"
-      } copied to clipboard. Hold shift for ${
-        event.shiftKey ? "shortcode" : "unicode"
-      }.`;
+      const copyTypeStrings = copyUnicode
+        ? ["unicode", "shortcode"]
+        : ["shortcode", "unicode"];
+      if (event.shiftKey) {
+        snackbarMessage = `Emoji '${copyTypeStrings[1]}' copied to clipboard.`;
+      } else {
+        snackbarMessage = `Emoji '${copyTypeStrings[0]}' copied to clipboard. ${
+          selectedEmoji.unified
+            ? "Hold shift for '" + copyTypeStrings[1] + "."
+            : ""
+        }`;
+      }
     }
+
+    // Copy to clipboard and display snackbar.
+    navigator.clipboard.writeText(copyText);
     setSnackPack((prev) => [
       ...prev,
       {
