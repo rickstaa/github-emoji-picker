@@ -20,6 +20,10 @@ A simple Emoji picker that displays all the emojis that GitHub supports. It is a
     </a>
 </p>
 
+## How to use
+
+Use the search field to search for a given emoji. You can click the emoji to get the shortcode or `shift` + click for the Unicode.
+
 ## Contributing
 
 Feel free to open an issue if you have ideas on how to make this repository better or if you want to report a bug! All contributions are welcome. :rocket: Please consult the [contribution guidelines](CONTRIBUTING.md) for more information.
