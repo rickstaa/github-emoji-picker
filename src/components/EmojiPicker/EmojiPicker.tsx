@@ -34,7 +34,6 @@ export const EmojiPicker = ({
   locale?: string;
 }) => {
   const { mode } = useContext(ThemeContext);
-
   return (
     <Picker
       data={data}

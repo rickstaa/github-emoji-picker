@@ -4,6 +4,16 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
+beforeEach(() => {
+  const mockIntersectionObserver = jest.fn();
+  mockIntersectionObserver.mockReturnValue({
+    observe: () => null,
+    unobserve: () => null,
+    disconnect: () => null,
+  });
+  window.IntersectionObserver = mockIntersectionObserver;
+});
+
 // == Mocks ==
 
 // Mock emoji-mart.
@@ -38,8 +48,8 @@ jest.mock("react-i18next", () => ({
 /**
  * App rendering test.
  */
-test("renders App", () => {
+test("renders App", async () => {
   render(<App />);
-  const textElement = screen.getByText("GitHub Emoji Picker");
+  const textElement = await screen.findByText("GitHub Emoji Picker");
   expect(textElement).toBeInTheDocument();
 });

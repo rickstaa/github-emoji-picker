@@ -5,15 +5,18 @@ import { CssBaseline, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, Suspense, lazy } from "react";
 import { useTranslation } from "react-i18next";
 import themes from "./assets/themes";
-import { Emoji, EmojiPicker } from "./components/EmojiPicker";
+import type { Emoji } from "./components/EmojiPicker";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Snackbar } from "./components/Snackbar";
+import { Loading } from "./components/Loading";
 import { ThemeContext } from "./store";
 import { parseShortCodes, unifiedToUnicodeEmoji } from "./utils/utils";
+
+const EmojiPicker = lazy(() => import("./components/EmojiPicker/EmojiPicker"));
 
 /**
  * Get the mart locale.
@@ -209,33 +212,35 @@ const App = () => {
     >
       <ThemeProvider theme={themes[mode]}>
         <CssBaseline />
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          wrap="nowrap"
-          sx={{ minHeight: "100vh" }}
-        >
-          <Grid item>
-            <Header />
+        <Suspense fallback={<Loading />}>
+          <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            wrap="nowrap"
+            sx={{ minHeight: "100vh" }}
+          >
+            <Grid item>
+              <Header />
+            </Grid>
+            <Grid item justifyContent="center">
+              <EmojiPicker
+                onEmojiSelect={handleEmojiSelect}
+                locale={martLocale}
+              />
+            </Grid>
+            <Grid item>
+              <Footer />
+            </Grid>
           </Grid>
-          <Grid item justifyContent="center">
-            <EmojiPicker
-              onEmojiSelect={handleEmojiSelect}
-              locale={martLocale}
-            />
-          </Grid>
-          <Grid item>
-            <Footer />
-          </Grid>
-        </Grid>
-        <Snackbar
-          messageInfo={messageInfo}
-          open={open}
-          onClose={handleSnackClose}
-          onExited={handleSnackExited}
-        />
+          <Snackbar
+            messageInfo={messageInfo}
+            open={open}
+            onClose={handleSnackClose}
+            onExited={handleSnackExited}
+          />
+        </Suspense>
       </ThemeProvider>
     </ThemeContext.Provider>
   );

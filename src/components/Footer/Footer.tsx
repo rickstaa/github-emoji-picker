@@ -4,6 +4,7 @@
 import { Grid, Link, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
+/** Footer component. */
 export const Footer = () => {
   const { t } = useTranslation();
 
