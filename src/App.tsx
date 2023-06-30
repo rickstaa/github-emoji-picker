@@ -169,7 +169,7 @@ const App = () => {
       } else {
         snackbarMessage = `Emoji '${copyTypeStrings[0]}' copied to clipboard. ${
           selectedEmoji.unified
-            ? "Hold shift for '" + copyTypeStrings[1] + "."
+            ? "Hold shift for '" + copyTypeStrings[1] + "'."
             : ""
         }`;
       }
