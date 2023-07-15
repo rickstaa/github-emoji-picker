@@ -30,7 +30,7 @@ export const EmojiPicker = ({
   onEmojiSelect,
   locale = "en",
 }: {
-  onEmojiSelect: (input: Emoji) => void;
+  onEmojiSelect: (input: Emoji, event: PointerEvent) => void;
   locale?: string;
 }) => {
   const { mode } = useContext(ThemeContext);

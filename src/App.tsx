@@ -13,6 +13,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Snackbar } from "./components/Snackbar";
 import { ThemeContext } from "./store";
+import { parseShortCodes, unifiedToUnicodeEmoji } from "./utils/utils";
 
 /**
  * Get the mart locale.
@@ -56,6 +57,7 @@ const App = () => {
   const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
     undefined
   );
+  const [copyUnicode, setCopyUnicode] = useState(false); // Whether to copy the unicode instead of the shortcode.
 
   /* Store theme mode in local storage. */
   useEffect(() => {
@@ -66,6 +68,31 @@ const App = () => {
   useEffect(() => {
     window.localStorage.setItem("locale", locale);
   }, [locale]);
+
+  /* Get copy type from URL query params. */
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let copyType = urlParams.get("copy_type");
+
+    // Change copy based on query param.
+    if (copyType) {
+      switch (copyType.toLowerCase()) {
+        case "unicode":
+          window.localStorage.setItem("copyType", "unicode");
+          setCopyUnicode(true);
+          return;
+        case "shortcode":
+        default:
+          window.localStorage.setItem("copyType", "shortcode");
+          setCopyUnicode(false);
+          return;
+      }
+    }
+
+    // Change copy based on local storage.
+    copyType = window.localStorage.getItem("copyType");
+    setCopyUnicode(copyType === "unicode");
+  }, []);
 
   /* Implements snackbar functionality. */
   useEffect(() => {
@@ -108,15 +135,49 @@ const App = () => {
    * Handles selection of the emoji.
    *
    * @param selectedEmoji Selected emoji.
+   *
+   * @description Copies the unicode or shortcode to the clipboard. Depends on the
+   * copyUnicode state and whether the shift key is pressed.
    */
-  const handleEmojiSelect = (selectedEmoji: Emoji) => {
-    // Copy emoji shortcode to clipboard.
-    navigator.clipboard.writeText(selectedEmoji.shortcodes);
-    // Display snackbar
+  const handleEmojiSelect = (selectedEmoji: Emoji, event: PointerEvent) => {
+    let copyText;
+    if (event.shiftKey) {
+      copyText = copyUnicode
+        ? parseShortCodes(selectedEmoji.shortcodes)[0]
+        : unifiedToUnicodeEmoji(selectedEmoji?.unified);
+    } else {
+      copyText = copyUnicode
+        ? unifiedToUnicodeEmoji(selectedEmoji?.unified)
+        : parseShortCodes(selectedEmoji.shortcodes)[0];
+    }
+
+    // Create snackbar message.
+    let snackbarMessage: string;
+    if (copyText === "") {
+      copyText = selectedEmoji.shortcodes;
+      snackbarMessage =
+        "Emoji 'shortcode' copied to clipboard since 'unicode' is not available.";
+    } else {
+      const copyTypeStrings = copyUnicode
+        ? ["unicode", "shortcode"]
+        : ["shortcode", "unicode"];
+      if (event.shiftKey) {
+        snackbarMessage = `Emoji '${copyTypeStrings[1]}' copied to clipboard.`;
+      } else {
+        snackbarMessage = `Emoji '${copyTypeStrings[0]}' copied to clipboard. ${
+          selectedEmoji.unified
+            ? "Hold shift for '" + copyTypeStrings[1] + "."
+            : ""
+        }`;
+      }
+    }
+
+    // Copy to clipboard and display snackbar.
+    navigator.clipboard.writeText(copyText);
     setSnackPack((prev) => [
       ...prev,
       {
-        message: "Emoji shortcode copied to clipboard",
+        message: snackbarMessage,
         key: new Date().getTime(),
       },
     ]);

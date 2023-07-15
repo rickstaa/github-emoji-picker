@@ -4,9 +4,9 @@
 import { Grid, Typography } from "@mui/material";
 import { useContext } from "react";
 import GitHubButton from "react-github-btn";
+import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../store";
 import { ThemeSwitch } from "../ThemeSwitch";
-import { useTranslation } from "react-i18next";
 import { LocaleSelector } from "./LocaleSelector";
 
 /** Header component. */
@@ -38,6 +38,8 @@ export const Header = () => {
             <img
               alt="OctoCat"
               src="https://github.githubassets.com/images/icons/emoji/octocat.png"
+              height="48"
+              width="48"
               style={{ width: "3rem" }}
             />
           </Grid>

@@ -11,14 +11,14 @@ We love your input! 🚀 We want to make contributing to this project as easy an
 
 ## We Develop with Github
 
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
+We use github to host code, track issues and feature requests, and accept pull requests.
 
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow)). We actively welcome your pull requests:
 
 1. Fork the repo and create your branch from `master`.
-2. If you've added code that should be tested, add tests.
+2. Add tests if you've added code that should be tested.
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes.
 5. Make sure your code lints.
@@ -42,7 +42,7 @@ We use GitHub issues to track public bugs. Report a bug by [opening a new issue]
 - A quick summary and/or background.
 - Steps to reproduce:
   - Be specific!
-  - Give sample code if you can. [A stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that _anyone_ with a base R setup can run to reproduce the error.
+  - Give sample code if you can. [This stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that _anyone_ with a base R setup can run to reproduce the error.
 - What you expected would happen
 - What actually happens.
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work).
@@ -51,7 +51,7 @@ People _love_ thorough bug reports. I'm not even kidding.
 
 ## Use a Consistent Coding Style
 
-We use [prettier](https://prettier.io/) formatter to format our typescript code. The easiest way to use [prettier](https://prettier.io/) is through the [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) VS Code extensions. You are also advised to use [eslint](https://eslint.org/) for linting your code before.
+We use the [prettier](https://prettier.io/) formatter to format our typescript code. The easiest way to use [prettier](https://prettier.io/) is through the [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) VS Code extensions. You are also advised to use [eslint](https://eslint.org/) to lint your code.
 
 ## Provide translations
 
