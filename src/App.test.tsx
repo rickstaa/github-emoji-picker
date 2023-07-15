@@ -4,6 +4,8 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
+// Mock IntersectionObserver because it is only available in the browser and react lazy
+// uses it.
 beforeEach(() => {
   const mockIntersectionObserver = jest.fn();
   mockIntersectionObserver.mockReturnValue({
