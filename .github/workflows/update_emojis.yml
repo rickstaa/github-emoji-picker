@@ -2,6 +2,7 @@ name: Up to Date
 on:
   schedule:
     - cron: "0 0 */7 * *"
+  workflow_dispatch:
 
 jobs:
   update:
@@ -16,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
 
       - name: Install dependencies
         run: npm ci
