@@ -3,7 +3,6 @@ name: "Update supported locales"
 on:
   push:
     branches: [main]
-  workflow_dispatch:
 
 jobs:
   updateSupportedLocales:
