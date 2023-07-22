@@ -384,11 +384,19 @@ const buildData = (githubEmojisData) => {
 
 /** Main code. */
 const run = async () => {
+  // Retrieve GITHUB_TOKEN from environment variables.
+  if (!process.env.GITHUB_TOKEN) {
+    console.error("No GitHub token found.");
+    return;
+  }
+
   // Get the latest version of the emoji data.
   console.log("Fetching GitHub emoji data...");
   let githubEmojis;
   try {
-    const octokit = new Octokit({});
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+    });  
     githubEmojis = await octokit.request("GET /emojis", {});
   } catch (error) {
     console.error("Could not retrieve GitHub emoji data.");
