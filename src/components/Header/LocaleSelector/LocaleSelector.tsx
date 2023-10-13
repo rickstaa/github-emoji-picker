@@ -35,8 +35,12 @@ export const LocaleSelector = () => {
    * A list of supported Alpha2 shortcodes e.g "en" "nl".
    */
   const supportedLocales = useMemo(() => {
-    const lngs = i18n.options.supportedLngs || [];
-    return Array.from(new Set(lngs)).filter((l) => l !== "cimode");
+    const lngs = i18n.options.supportedLngs;
+    if (Array.isArray(lngs)) {
+      return Array.from(new Set(lngs)).filter((l) => l !== "cimode");
+    }
+
+    return [];
   }, [i18n.options.supportedLngs]);
 
   /**
