@@ -45,7 +45,7 @@
     "emoji-datasource": "^15.1.0",
     "emoji-mart": "^5.5.1",
     "emojilib": "^3.0.7",
-    "i18next": "^23.10.1",
+    "i18next": "^23.11.0",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.5.0",
     "inflection": "^3.0.0",
