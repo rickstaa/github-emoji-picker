@@ -274,7 +274,7 @@ export function getEmojiFlag(
     VI: "🇻🇳",
     ZH: "🇨🇳",
     BE: "🇧🇾",
-  }
+  },
 ) {
   const arr = countryCode.split("-");
   return countryFlagData[(arr[1] || arr[0]).toUpperCase()] || fallback;

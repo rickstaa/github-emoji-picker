@@ -11,7 +11,7 @@ const unifiedToUnicodeEmoji = (unified: string) => {
   if (!unified) return "";
 
   return String.fromCodePoint(
-    ...unified.split("-").map((str: string) => parseInt(str, 16))
+    ...unified.split("-").map((str: string) => parseInt(str, 16)),
   );
 };
 
