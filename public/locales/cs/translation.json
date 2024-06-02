@@ -1,6 +1,6 @@
 {
-    "header.description": "Jednoduchý výběr emocí, který zobrazuje všechny podporované GitHuby.",
-    "header.themeSwitch.description": "Přepněte na preferovanou šablonu a jazyk.",
+    "header.description": "Jednoduchý výběr emoji, který zobrazuje všechny podporované emoji na GitHubu.",
+    "header.themeSwitch.description": "Přepněte na preferované téma a jazyk.",
     "footer.description": "Vyrobeno s",
     "localeSelector.translate": "Přeložit"
 }
