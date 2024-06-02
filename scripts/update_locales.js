@@ -3,7 +3,7 @@
  * and create a pull request if there are new languages.
  */
 
-const fs = require("fs/promises");
+import fs from "fs/promises";
 
 const run = async () => {
   console.log("Get current locales...");
