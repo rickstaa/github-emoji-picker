@@ -3,13 +3,13 @@
  * the 'emoji-datasource' package and generate the `github_emojis.json` and
  * `github_custom_emojis.json` data files.
  */
-const { mkdir, writeFile } = require("fs");
-const inflection = require("inflection"); // Keyword support library.
-const emojiLib = require("emojilib"); // Emoji data search library.
-const emojiData = require("emoji-datasource"); // Multi-OS emoji data.
-const unicodeEmoji = require("unicode-emoji-json"); // Unicode emoji data.
-const { Octokit } = require("@octokit/core");
-const CustomKeyWords = require("./keywords.json");
+import { mkdir, writeFile } from 'fs';
+import inflection from 'inflection';  // Keyword support library.
+import emojiLib from 'emojilib' assert { type: 'json' };  // Emoji data search library.
+import emojiData from 'emoji-datasource' assert { type: 'json' };  // Multi-OS emoji data.
+import unicodeEmoji from 'unicode-emoji-json' assert { type: 'json' };  // Unicode emoji data.
+import { Octokit } from '@octokit/core';
+import CustomKeyWords from './keywords.json' assert { type: 'json' };
 
 // Script variables
 const DRY_RUN = process.argv.indexOf("--dry") !== -1;
@@ -396,7 +396,7 @@ const run = async () => {
   try {
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
-    });  
+    });
     githubEmojis = await octokit.request("GET /emojis", {});
   } catch (error) {
     console.error("Could not retrieve GitHub emoji data.");
