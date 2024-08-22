@@ -1,5 +1,5 @@
 {
-    "header.description": "一个简单的情绪选择器，显示所有支持 GitHub 表情符号。",
+    "header.description": "一个简单的情绪选择器，显示所有支持的 GitHub 表情符号。",
     "header.themeSwitch.description": "切换到您首选的主题和语言。",
     "footer.description": "创建于",
     "localeSelector.translate": "翻译"
