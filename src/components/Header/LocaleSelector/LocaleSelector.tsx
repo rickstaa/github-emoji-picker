@@ -1,14 +1,16 @@
+"use client";
+
 /**
  * @file LocaleSelector component.
  */
 
 import { useContext, useMemo, useState } from "react";
-import { Button, Popover, Paper, Grid, styled, Link} from "@mui/material";
+import { Button, Popover, Paper, Grid, styled, Link } from "@mui/material";
 import { Translate, AddBox } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
-import { getEmojiFlag } from "../../../utils/getEmojiFlag";
+import { getEmojiFlag } from "@/utils/getEmojiFlag";
 import { getName } from "all-iso-language-codes";
-import { ThemeContext } from "../../../store";
+import { ThemeContext } from "@/store";
 
 // Style locale selector language option button.
 const LocaleOptButton = styled(Button)(({ theme }) => ({

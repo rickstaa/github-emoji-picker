@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * @file Contains header component.
  */
@@ -5,8 +7,8 @@ import { Grid, Typography } from "@mui/material";
 import { useContext } from "react";
 import GitHubButton from "react-github-btn";
 import { useTranslation } from "react-i18next";
-import { ThemeContext } from "../../store";
-import { ThemeSwitch } from "../ThemeSwitch";
+import { ThemeContext } from "@/store";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
 import { LocaleSelector } from "./LocaleSelector";
 
 /** Header component. */

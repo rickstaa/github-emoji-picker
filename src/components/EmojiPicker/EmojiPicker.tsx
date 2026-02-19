@@ -1,11 +1,13 @@
+"use client";
+
 /**
  * @file Contains custom emoji picker.
  */
 import Picker from "@emoji-mart/react";
 import { useContext } from "react";
-import customGithubEmojis from "../../data/github_custom_emojis.json";
-import data from "../../data/github_emojis.json";
-import { ThemeContext } from "../../store";
+import customGithubEmojis from "@/data/github_custom_emojis.json";
+import data from "@/data/github_emojis.json";
+import { ThemeContext } from "@/store";
 
 /** Extra categories. */
 const customEmojiCategories = {
@@ -41,7 +43,6 @@ export const EmojiPicker = ({
       categoryIcons={customEmojiCategories}
       onEmojiSelect={onEmojiSelect}
       theme={mode === "dark" ? "dark" : "light"}
-      sx={{ pt: "1", pb: "1" }}
       locale={locale}
     />
   );
