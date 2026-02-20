@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GitHub Emoji Picker",
+  "name": "GitHub Emoji Picker",
   "icons": [
     {
       "src": "favicon.ico",

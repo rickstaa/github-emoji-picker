@@ -1,5 +1,7 @@
+"use client";
+
 /**
- * @file Main App file.
+ * @file Main App component.
  */
 import { CssBaseline, Grid } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
@@ -7,16 +9,17 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { useEffect, useMemo, useState, Suspense, lazy } from "react";
 import { useTranslation } from "react-i18next";
-import themes from "./assets/themes";
-import type { Emoji } from "./components/EmojiPicker";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import { Snackbar } from "./components/Snackbar";
-import { Loading } from "./components/Loading";
-import { ThemeContext } from "./store";
-import { parseShortCodes, unifiedToUnicodeEmoji } from "./utils/utils";
+import themes from "@/assets/themes";
+import type { Emoji } from "@/components/EmojiPicker";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Snackbar } from "@/components/Snackbar";
+import { Loading } from "@/components/Loading";
+import { ThemeContext } from "@/store";
+import { parseShortCodes, unifiedToUnicodeEmoji } from "@/utils/utils";
+import "@/i18n";
 
-const EmojiPicker = lazy(() => import("./components/EmojiPicker/EmojiPicker"));
+const EmojiPicker = lazy(() => import("@/components/EmojiPicker/EmojiPicker"));
 
 /**
  * Get the mart locale.
@@ -58,7 +61,7 @@ const App = () => {
   const [snackPack, setSnackPack] = useState<readonly SnackbarMessage[]>([]);
   const [open, setOpen] = useState(false);
   const [messageInfo, setMessageInfo] = useState<SnackbarMessage | undefined>(
-    undefined
+    undefined,
   );
   const [copyUnicode, setCopyUnicode] = useState(false); // Whether to copy the unicode instead of the shortcode.
 
@@ -119,7 +122,7 @@ const App = () => {
    */
   const handleSnackClose = (
     event: React.SyntheticEvent | Event,
-    reason?: string
+    reason?: string,
   ) => {
     if (reason === "clickaway") {
       return;
