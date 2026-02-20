@@ -15,6 +15,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "test": "vitest run",
     "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
     "all": "npm run build && npm run format && npm run lint",
     "update-emojis": "node scripts/create_github_emoji_list.js",
     "update-locales": "node scripts/update_locales.js"
