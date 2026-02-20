@@ -22,7 +22,7 @@ export const Footer = () => {
             underline="hover"
             target="_blank"
           >
-            emoji-mart
+            emoji-mart🏪
           </Link>
           .
         </Typography>

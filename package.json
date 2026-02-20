@@ -13,6 +13,8 @@
     "lint": "eslint src/",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "all": "npm run build && npm run format && npm run lint",
     "update-emojis": "node scripts/create_github_emoji_list.js",
     "update-locales": "node scripts/update_locales.js"
@@ -43,12 +45,18 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^5.1.4",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.1.0",
+    "jsdom": "^28.1.0",
     "prettier": "^3.2.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
   }
 }

@@ -47,14 +47,12 @@ const App = () => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const { i18n } = useTranslation();
   const [mode, setMode] = useState(() => {
-    if (typeof window === "undefined") return "light";
     return (
       window.localStorage.getItem("mode") ||
       (prefersDarkMode ? "dark" : "light")
     );
   });
   const [locale, setLocale] = useState(() => {
-    if (typeof window === "undefined") return "en";
     return (
       window.localStorage.getItem("locale") || i18n.resolvedLanguage || "en"
     );
