@@ -37,7 +37,7 @@
     "i18next-http-backend": "^3.0.2",
     "inflection": "^3.0.0",
     "next": "^15.1.0",
-    "octokit": "^4.0.2",
+    "octokit": "^5.0.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
