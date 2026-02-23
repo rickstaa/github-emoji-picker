@@ -42,7 +42,7 @@
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
     "react-i18next": "^15.4.1",
-    "unicode-emoji-json": "^0.6.0"
+    "unicode-emoji-json": "^0.8.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.3",
