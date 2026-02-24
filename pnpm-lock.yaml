@@ -33,8 +33,8 @@ importers:
         specifier: ^1.0.11
         version: 1.0.21
       emoji-datasource:
-        specifier: ^15.1.0
-        version: 15.1.2
+        specifier: ^16.0.0
+        version: 16.0.0
       emoji-mart:
         specifier: ^5.6.0
         version: 5.6.0
@@ -1681,8 +1681,8 @@ packages:
   electron-to-chromium@1.5.302:
     resolution: {integrity: sha512-sM6HAN2LyK82IyPBpznDRqlTQAtuSaO+ShzFiWTvoMJLHyZ+Y39r8VMfHzwbU8MVBzQ4Wdn85+wlZl2TLGIlwg==}
 
-  emoji-datasource@15.1.2:
-    resolution: {integrity: sha512-tXAqGsrDVhgCRpFePtaD9P4Z8Ro2SUQSL/4MIJBG0SxqQJaMslEbin8J53OaFwEBu6e7JxFaIF6s4mw9+8acAQ==}
+  emoji-datasource@16.0.0:
+    resolution: {integrity: sha512-/qHKqK5Nr3+8zhgO6kHmF43Fm5C8HNn0AaFRIpgw8HF3+uF0Vfc8jgLI1ZQS5ba1vBzksS8NBCjHejwLb2D/Sg==}
 
   emoji-mart@5.6.0:
     resolution: {integrity: sha512-eJp3QRe79pjwa+duv+n7+5YsNhRcMl812EcFVwrnRvYKoNPoQb5qxU8DG6Bgwji0akHdp6D4Ln6tYLG58MFSow==}
@@ -4527,7 +4527,7 @@ snapshots:
 
   electron-to-chromium@1.5.302: {}
 
-  emoji-datasource@15.1.2: {}
+  emoji-datasource@16.0.0: {}
 
   emoji-mart@5.6.0: {}
 
