@@ -41,7 +41,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-btn": "^1.4.0",
-    "react-i18next": "^15.4.1",
+    "react-i18next": "^16.5.4",
     "unicode-emoji-json": "^0.8.0"
   },
   "devDependencies": {
