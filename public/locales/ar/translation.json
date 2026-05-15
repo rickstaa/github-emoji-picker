@@ -1,6 +1,6 @@
 {
-    "header.description": "منتقي عاطفي بسيط يعرض كل الرموز التعبيرية المدعومة GitHub.",
-    "header.themeSwitch.description": "قم بالتبديل إلى السمة واللغة المفضلتين لديك.",
-    "footer.description": "تم إنشاؤها باستخدام",
-    "localeSelector.translate": "قُم بالترجمة"
+    "header.description": "أداة بسيطة لاختيار الرموز التعبيرية تعرض جميع الرموز التعبيرية المدعومة على GitHub.",
+    "header.themeSwitch.description": "بدّل إلى المظهر واللغة المفضلين لديك.",
+    "footer.description": "تم إنشاؤه باستخدام",
+    "localeSelector.translate": "تَرجِمْ"
 }
