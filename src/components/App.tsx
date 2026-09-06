@@ -15,11 +15,30 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Snackbar } from "@/components/Snackbar";
 import { Loading } from "@/components/Loading";
+import nonGithubEmojis from "@/data/non_github_emojis.json";
 import { ThemeContext } from "@/store";
 import { parseShortCodes, unifiedToUnicodeEmoji } from "@/utils/utils";
 import "@/i18n";
 
 const EmojiPicker = lazy(() => import("@/components/EmojiPicker/EmojiPicker"));
+
+/** Ids of the emojis GitHub does not support yet. */
+const nonGithubEmojiIds = new Set<string>(nonGithubEmojis);
+
+/**
+ * Whether emojis GitHub does not support should be shown.
+ *
+ * @description The `non_github` URL parameter takes precedence over local storage.
+ */
+const getShowNonGithub = () => {
+  const param = new URLSearchParams(window.location.search).get("non_github");
+  if (param !== null) {
+    const show = param.toLowerCase() === "true";
+    window.localStorage.setItem("nonGithub", String(show));
+    return show;
+  }
+  return window.localStorage.getItem("nonGithub") === "true";
+};
 
 /**
  * Get the mart locale.
@@ -64,6 +83,11 @@ const App = () => {
     undefined,
   );
   const [copyUnicode, setCopyUnicode] = useState(false); // Whether to copy the unicode instead of the shortcode.
+  const [showNonGithub] = useState(getShowNonGithub);
+  const exceptEmojis = useMemo(
+    () => (showNonGithub ? [] : nonGithubEmojis),
+    [showNonGithub],
+  );
 
   /* Store theme mode in local storage. */
   useEffect(() => {
@@ -146,6 +170,22 @@ const App = () => {
    * copyUnicode state and whether the shift key is pressed.
    */
   const handleEmojiSelect = (selectedEmoji: Emoji, event: PointerEvent) => {
+    // Emojis GitHub does not support have no shortcode, so always copy the unicode.
+    if (nonGithubEmojiIds.has(selectedEmoji.id)) {
+      navigator.clipboard.writeText(
+        unifiedToUnicodeEmoji(selectedEmoji?.unified),
+      );
+      setSnackPack((prev) => [
+        ...prev,
+        {
+          message:
+            "Emoji 'unicode' copied to clipboard. GitHub does not support this emoji yet, so it has no 'shortcode'.",
+          key: new Date().getTime(),
+        },
+      ]);
+      return;
+    }
+
     let copyText;
     if (event.shiftKey) {
       copyText = copyUnicode
@@ -195,6 +235,19 @@ const App = () => {
   };
 
   /**
+   * Toggles whether emojis GitHub does not support are shown.
+   *
+   * @description Reloads the page because emoji-mart filters its emoji data once,
+   * when the picker mounts, and cannot add emojis back afterwards.
+   */
+  const toggleNonGithub = () => {
+    window.localStorage.setItem("nonGithub", String(!showNonGithub));
+    const url = new URL(window.location.href);
+    url.searchParams.delete("non_github");
+    window.location.replace(url);
+  };
+
+  /**
    * Changes the UI locale.
    *
    * @param lcl Locale to change to.
@@ -211,6 +264,8 @@ const App = () => {
         toggleMode: toggleThemeMode,
         locale,
         changeLocale,
+        showNonGithub,
+        toggleNonGithub,
       }}
     >
       <ThemeProvider theme={themes[mode]}>
@@ -231,6 +286,7 @@ const App = () => {
               <EmojiPicker
                 onEmojiSelect={handleEmojiSelect}
                 locale={martLocale}
+                exceptEmojis={exceptEmojis}
               />
             </Grid>
             <Grid item>

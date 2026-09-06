@@ -3,7 +3,7 @@
 /**
  * @file Contains header component.
  */
-import { Grid, Typography } from "@mui/material";
+import { FormControlLabel, Grid, Switch, Typography } from "@mui/material";
 import { useContext } from "react";
 import GitHubButton from "react-github-btn";
 import { useTranslation } from "react-i18next";
@@ -13,7 +13,8 @@ import { LocaleSelector } from "./LocaleSelector";
 
 /** Header component. */
 export const Header = () => {
-  const { mode, toggleMode } = useContext(ThemeContext);
+  const { mode, toggleMode, showNonGithub, toggleNonGithub } =
+    useContext(ThemeContext);
   const { t } = useTranslation();
 
   return (
@@ -116,6 +117,22 @@ export const Header = () => {
             <Typography variant="caption" align="center" pl={1} pr={1}>
               {t("header.themeSwitch.description")}
             </Typography>
+          </Grid>
+          <Grid item>
+            <FormControlLabel
+              control={
+                <Switch
+                  size="small"
+                  checked={showNonGithub}
+                  onChange={toggleNonGithub}
+                />
+              }
+              label={
+                <Typography variant="caption">
+                  {t("header.nonGithubSwitch.label")}
+                </Typography>
+              }
+            />
           </Grid>
         </Grid>
       </Grid>

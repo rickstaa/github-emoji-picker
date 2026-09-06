@@ -9,6 +9,8 @@ export const ThemeContext = createContext({
   toggleMode: () => {},
   locale: "en",
   changeLocale: async (lcl: string) => {},
+  showNonGithub: false,
+  toggleNonGithub: () => {},
 });
 
 export default ThemeContext;

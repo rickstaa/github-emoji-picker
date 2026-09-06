@@ -24,6 +24,8 @@ A simple Emoji picker that displays all the emojis that GitHub supports. It is a
 
 Use the search field to search for a given emoji. You can click the emoji to get the shortcode on your clipboard or `shift` + click for the Unicode. You can invert the copy behaviour by setting the `copy_type` URL parameter to `unicode` or `shortcode`.
 
+By default only emojis that GitHub supports are shown. Use the switch below the theme and language selectors, or set the `non_github` URL parameter to `true`, to also show newer Unicode emojis that GitHub does not support yet. These have no shortcode, so clicking them always copies the Unicode.
+
 ## Contributing
 
 Feel free to open an issue if you have ideas on how to make this repository better or if you want to report a bug! All contributions are welcome. :rocket: Please consult the [contribution guidelines](CONTRIBUTING.md) for more information.
