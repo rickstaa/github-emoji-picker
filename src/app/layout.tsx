@@ -4,7 +4,7 @@ import Script from "next/script";
 export const metadata: Metadata = {
   title: "GitHub Emoji picker",
   description:
-    "A simple emotion picker that displays all the supported GitHub emojis.",
+    "A simple emoji picker that displays all the supported GitHub emojis.",
   icons: {
     icon: "/favicon.ico",
   },
