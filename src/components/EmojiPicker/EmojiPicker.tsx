@@ -31,9 +31,12 @@ export interface Emoji {
 export const EmojiPicker = ({
   onEmojiSelect,
   locale = "en",
+  exceptEmojis = [],
 }: {
   onEmojiSelect: (input: Emoji, event: PointerEvent) => void;
   locale?: string;
+  /** Emoji ids to hide. Only applied when the picker mounts. */
+  exceptEmojis?: string[];
 }) => {
   const { mode } = useContext(ThemeContext);
   return (
@@ -42,6 +45,7 @@ export const EmojiPicker = ({
       custom={[customGithubEmojis]}
       categoryIcons={customEmojiCategories}
       onEmojiSelect={onEmojiSelect}
+      exceptEmojis={exceptEmojis}
       theme={mode === "dark" ? "dark" : "light"}
       locale={locale}
     />

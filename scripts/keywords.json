@@ -28,6 +28,9 @@
   "bowtie": {
     "keywords": ["bowtie", "fabulous", "style", "gentlemen"]
   },
+  "copilot": {
+    "keywords": ["copilot", "github", "ai", "assistant", "code"]
+  },
   "dependabot": {
     "keywords": ["dependabot", "dependency", "security", "ci"]
   },

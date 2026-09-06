@@ -8,6 +8,7 @@ import App from "./App";
 // Mock IntersectionObserver because it is only available in the browser and react lazy
 // uses it.
 beforeEach(() => {
+  window.localStorage.clear();
   const mockIntersectionObserver = vi.fn();
   mockIntersectionObserver.mockReturnValue({
     observe: () => null,
@@ -55,5 +56,23 @@ describe("App", () => {
     render(<App />);
     const textElement = await screen.findByText("GitHub Emoji Picker");
     expect(textElement).toBeInTheDocument();
+  });
+
+  it("hides non-GitHub emojis by default", async () => {
+    render(<App />);
+    const toggle = await screen.findByRole("checkbox", {
+      name: "header.nonGithubSwitch.label",
+    });
+    expect(toggle).not.toBeChecked();
+  });
+
+  it("shows non-GitHub emojis when the URL parameter is set", async () => {
+    window.history.replaceState({}, "", "/?non_github=true");
+    render(<App />);
+    const toggle = await screen.findByRole("checkbox", {
+      name: "header.nonGithubSwitch.label",
+    });
+    expect(toggle).toBeChecked();
+    window.history.replaceState({}, "", "/");
   });
 });

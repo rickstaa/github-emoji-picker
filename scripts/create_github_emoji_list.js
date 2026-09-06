@@ -1,15 +1,15 @@
 /**
  * @file Fetch the latest emoji data from the GitHub API, compare it with the emojis in
- * the 'emoji-datasource' package and generate the `github_emojis.json` and
- * `github_custom_emojis.json` data files.
+ * the 'emoji-datasource' package and generate the `github_emojis.json`,
+ * `github_custom_emojis.json` and `non_github_emojis.json` data files.
  */
-import { mkdir, writeFile } from 'fs';
-import inflection from 'inflection';  // Keyword support library.
-import emojiLib from 'emojilib' assert { type: 'json' };  // Emoji data search library.
-import emojiData from 'emoji-datasource' assert { type: 'json' };  // Multi-OS emoji data.
-import unicodeEmoji from 'unicode-emoji-json' assert { type: 'json' };  // Unicode emoji data.
-import { Octokit } from '@octokit/core';
-import CustomKeyWords from './keywords.json' assert { type: 'json' };
+import { mkdir, writeFile } from "fs";
+import inflection from "inflection"; // Keyword support library.
+import emojiLib from "emojilib" with { type: "json" }; // Emoji data search library.
+import emojiData from "emoji-datasource" with { type: "json" }; // Multi-OS emoji data.
+import unicodeEmoji from "unicode-emoji-json" with { type: "json" }; // Unicode emoji data.
+import { Octokit } from "@octokit/core";
+import CustomKeyWords from "./keywords.json" with { type: "json" };
 
 // Script variables
 const DRY_RUN = process.argv.indexOf("--dry") !== -1;
@@ -25,6 +25,9 @@ const CATEGORIES = [
   ["Symbols", "symbols"],
   ["Flags", "flags"],
 ];
+// emoji-mart hides emojis newer than the emoji version it detects in the browser, and
+// the newest version it can detect is 15. Clamp so newer emojis are not hidden forever.
+const MAX_DETECTABLE_EMOJI_VERSION = 15;
 const KEYWORD_SUBSTITUTES = {
   highfive: "highfive high-five",
 }; // Extend the keyword list with custom keywords.
@@ -122,42 +125,43 @@ const addGitHubShortName = (emojiObject, githubShortNames) => {
 };
 
 /**
- * Filter the 'emoji-datasource' package data to only include the GitHub emojis.
+ * Add the GitHub short names to the 'emoji-datasource' package data. Emojis that
+ * GitHub does not support keep their 'emoji-datasource' short name and get no
+ * `github_short_name`.
  * @param {Object} githubUnicodeEmojis Object containing the GitHub emoji unicodes.
- * @returns {array} Array containing the filtered 'emoji-datasource' package data.
+ * @returns {array} Array containing the 'emoji-datasource' package data.
  * @throws {Error} Throws an error if not all GitHub emojis have a match.
  */
-const getFilteredEmojiData = (githubUnicodeEmojis) => {
-  let filteredEmojis = [];
+const getAnnotatedEmojiData = (githubUnicodeEmojis) => {
   let notFound = [];
 
   // Loop through GitHub unicodes and try to find a match in the 'emoji-datasource'.
   for (const [key, value] of Object.entries(githubUnicodeEmojis)) {
     // Try to find match by using unicode.
     const unicodeObject = emojiData.find(
-      (item) => item.unified.toLowerCase() === key
+      (item) => item.unified.toLowerCase() === key,
     );
     if (unicodeObject) {
-      filteredEmojis.push(addGitHubShortName(unicodeObject, value));
+      addGitHubShortName(unicodeObject, value);
       continue;
     }
 
     // Try to find match by using non-qualified unicode.
     const nonQualifiedObject = emojiData.find(
       (item) =>
-        (item.non_qualified ? item.non_qualified.toLowerCase() : null) === key
+        (item.non_qualified ? item.non_qualified.toLowerCase() : null) === key,
     );
     if (nonQualifiedObject) {
-      filteredEmojis.push(addGitHubShortName(nonQualifiedObject, value));
+      addGitHubShortName(nonQualifiedObject, value);
       continue;
     }
 
     // Try to find match by using parsed unicode.
     const unicodeObjectParsed = emojiData.find(
-      (item) => parseEmojiDataUnicode(item.unified.toLowerCase()) === key
+      (item) => parseEmojiDataUnicode(item.unified.toLowerCase()) === key,
     );
     if (unicodeObjectParsed) {
-      filteredEmojis.push(addGitHubShortName(unicodeObjectParsed, value));
+      addGitHubShortName(unicodeObjectParsed, value);
       continue;
     }
 
@@ -169,11 +173,11 @@ const getFilteredEmojiData = (githubUnicodeEmojis) => {
     throw new Error(
       `Some GitHub Emojis could not be found in the 'emoji-datasource' package: ${notFound
         .flat()
-        .join(", ")}.`
+        .join(", ")}.`,
     );
   }
 
-  return filteredEmojis;
+  return emojiData;
 };
 
 /**
@@ -189,6 +193,7 @@ const buildData = (githubEmojisData) => {
     aliases: {},
     sheet: { cols: 61, rows: 61 },
   };
+  let nonGithubEmojis = [];
 
   // Add categories.
   CATEGORIES.forEach((category, i) => {
@@ -211,11 +216,11 @@ const buildData = (githubEmojisData) => {
     customEmojis: githubCustomEmojis,
   } = parseGitHubEmojiData(githubEmojisData);
 
-  // Retrieve filtered emoji data from 'emoji-datasource'.
-  const filteredEmojis = getFilteredEmojiData(githubUnicodeEmojis);
+  // Annotate the 'emoji-datasource' data with the GitHub short names.
+  const annotatedEmojis = getAnnotatedEmojiData(githubUnicodeEmojis);
 
-  // Make GitHub emojis searchable and create the EmojiMart data source.
-  filteredEmojis.forEach((datum) => {
+  // Make emojis searchable and create the EmojiMart data source.
+  annotatedEmojis.forEach((datum) => {
     if (!datum.category)
       throw new Error(`“${datum.short_name}” doesn’t have a category.`);
 
@@ -223,10 +228,10 @@ const buildData = (githubEmojisData) => {
     let unified = datum.unified.toLowerCase();
     let native = unifiedToNative(unified);
     let name = inflection.titleize(
-      datum.name || datum.short_name.replace(/-/g, " ") || ""
+      datum.name || datum.short_name.replace(/-/g, " ") || "",
     );
     let unicodeEmojiName = inflection.titleize(
-      unicodeEmoji[native]?.name || ""
+      unicodeEmoji[native]?.name || "",
     );
     if (
       name.indexOf(":") === -1 &&
@@ -311,10 +316,13 @@ const buildData = (githubEmojisData) => {
     // Add version information to emoji.
     let addedIn = parseFloat(datum.added_in);
     if (addedIn < 1) addedIn = 1;
+    if (addedIn > MAX_DETECTABLE_EMOJI_VERSION)
+      addedIn = MAX_DETECTABLE_EMOJI_VERSION;
 
-    // Create emoji object.
+    // Create emoji object. Emojis GitHub does not support keep their datasource id.
+    const isGithubEmoji = Boolean(datum.github_short_name);
     const emoji = {
-      id: datum.github_short_name,
+      id: isGithubEmoji ? datum.github_short_name : id,
       name,
       emoticons,
       keywords,
@@ -329,9 +337,12 @@ const buildData = (githubEmojisData) => {
 
     // Don't add Component emoji category items these are already included as skins.
     if (datum.category !== "Component") {
+      if (data.emojis[emoji.id])
+        throw new Error(`Duplicate emoji id “${emoji.id}” found.`);
       let categoryIndex = categoriesIndex[datum.category];
       data.categories[categoryIndex].emojis.push(emoji.id);
       data.emojis[emoji.id] = emoji;
+      if (!isGithubEmoji) nonGithubEmojis.push(emoji.id);
     }
   });
 
@@ -376,7 +387,14 @@ const buildData = (githubEmojisData) => {
         JSON.stringify(githubEmojis),
         (err) => {
           if (err) throw err;
-        }
+        },
+      );
+      writeFile(
+        `${folder}/non_github_emojis.json`,
+        JSON.stringify(nonGithubEmojis),
+        (err) => {
+          if (err) throw err;
+        },
       );
     });
   }
@@ -384,10 +402,9 @@ const buildData = (githubEmojisData) => {
 
 /** Main code. */
 const run = async () => {
-  // Retrieve GITHUB_TOKEN from environment variables.
+  // The emoji endpoint is public; a GITHUB_TOKEN only raises the rate limit.
   if (!process.env.GITHUB_TOKEN) {
-    console.error("No GitHub token found.");
-    return;
+    console.warn("No GitHub token found, using unauthenticated requests.");
   }
 
   // Get the latest version of the emoji data.
