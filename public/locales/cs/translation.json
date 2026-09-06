@@ -1,5 +1,5 @@
 {
-    "header.description": "Jednoduchý výběr emoji, který zobrazuje všechny podporované emoji na GitHubu.",
+    "header.description": "A simple emoji picker that displays all the supported GitHub emojis.",
     "header.themeSwitch.description": "Přepněte na preferované téma a jazyk.",
     "footer.description": "Vyrobeno s",
     "localeSelector.translate": "Přeložit"
