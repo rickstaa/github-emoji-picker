@@ -1,5 +1,5 @@
 {
-    "header.description": "یک انتخابگر ساده احساسات که تمام شکلک های پشتیبانی شده GitHub را نمایش می دهد.",
+    "header.description": "A simple emoji picker that displays all the supported GitHub emojis.",
     "header.themeSwitch.description": "به موضوع و زبان دلخواه خود بروید.",
     "footer.description": "ایجاد شده با",
     "localeSelector.translate": "ترجمه"
