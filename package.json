@@ -62,7 +62,7 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^5.0.0"
   },
   "pnpm": {
     "overrides": {
